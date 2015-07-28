@@ -1,0 +1,24 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2em;
+}
+
+.main-nav {
+  padding: 10px;
+  border-bottom: 10px solid #b3ee00;
+}
+  .main-nav a {
+    color: white;
+  }
+
+  .main-nav li:hover {
+    background-color: #00b3ee;
+  }
+
+.text-light {
+  font-weight: lighter;
+}
