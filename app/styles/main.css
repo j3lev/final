@@ -32,3 +32,16 @@ h1 {
 .text-light {
   font-weight: lighter;
 }
+
+.thumbnail img {
+  height: 200px;
+  width: auto;
+}
+
+.item-pic {
+  background-color: lightgray;
+  height: 200px;
+}
+  .item-pic i {
+    margin-top: 20%;
+  }

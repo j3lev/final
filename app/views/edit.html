@@ -4,11 +4,11 @@
     <ng-form name="editForm">
       <div class="form-group">
         <label>Name</label><br/>
-        <input type="text" class="form-control" data-ng-model="item.name"/>
+        <input data-ng-required="true" type="text" class="form-control" data-ng-model="item.name"/>
       </div>
       <div class="form-group">
         <label>Type</label><br/>
-        <input type="text" class="form-control" data-ng-model="item.type"/>
+        <input data-ng-required="true" type="text" class="form-control" data-ng-model="item.type"/>
       </div>
       <div class="form-group">
         <label>Description</label><br/>
@@ -16,13 +16,18 @@
       </div>
       <div class="form-group">
         <label>Company</label><br/>
-        <input type="text" class="form-control" data-ng-model="item.company"/>
+        <input data-ng-required="true" type="text" class="form-control" data-ng-model="item.company"/>
       </div>
       <div class="form-group">
         <label>Stock</label><br/>
         <input type="number" class="form-control" data-ng-model="item.stock"/>
       </div>
+      <div class="form-group">
+        <label>Thumbnail</label>
+        <input accept="image/*" type="file" data-ng-model="uploadedImg" base-sixty-four-input />
+      </div>
       <button class="btn btn-success" data-ng-click="save(editForm)"><i class="fa fa-check"></i></button>
+      <button class="btn btn-danger" data-ng-click="delete()"><i class="fa fa-times"></i></button>
     </ng-form>
   </div>
 </div>

@@ -10,7 +10,7 @@
 angular.module('finalApp')
   .factory('editItem', function () {
 
-    var editObj = {};
+    var editObj = null;
 
     return {
       set: function (item) {
