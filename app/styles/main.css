@@ -1,6 +1,15 @@
 body {
   font-family: 'Roboto', sans-serif;
+  padding-top: 70px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
+ul.nav a:hover {
+  color: #337ab7;
+  cursor: pointer;
+}
+
 
 h1 {
   margin-top: 0;
@@ -15,9 +24,10 @@ h1 {
     color: white;
   }
 
-  .main-nav li:hover {
-    background-color: #00b3ee;
-  }
+.loading-box {
+  margin-top: 10%;
+}
+
 
 .text-light {
   font-weight: lighter;

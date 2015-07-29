@@ -1,1 +1,9 @@
-<p>This is the manage view.</p>
+<div class="row">
+  <div class="col-xs-12 text-center loading-box" data-ng-if="!isLoaded">
+    <i class="fa fa-refresh fa-spin fa-5x"></i>
+  </div>
+  <div class="clearfix">&nbsp;</div>
+  <div class="col-xs-12">
+    <button class="btn btn-success" data-ng-click="addNew()"><i class="fa fa-plus"></i> Add</button>
+  </div>
+</div>

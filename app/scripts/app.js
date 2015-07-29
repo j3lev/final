@@ -11,22 +11,23 @@
 angular
   .module('finalApp', [
     'ngAnimate',
-    'ngCookies',
     'ngResource',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'mgcrea.ngStrap',
+    'naif.base64'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
       .when('/manage', {
         templateUrl: 'views/manage.html',
         controller: 'ManageCtrl'
       })
+      .when('/edit', {
+        templateUrl: 'views/edit.html',
+        controller: 'EditCtrl'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/manage'
       });
   });

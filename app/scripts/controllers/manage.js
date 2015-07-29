@@ -8,49 +8,30 @@
  * Controller of the finalApp
  */
 angular.module('finalApp')
-  .controller('ManageCtrl', function ($scope) {
+  .controller('ManageCtrl', function ($scope, $http, Item, editItem, $location) {
+    $scope.items = [];
+    $scope.isLoaded = false;
 
-    $scope.inventory = [
-      {
-        id: 1,
-        name: 'Frosted Flakes',
-        category: 'cereal',
-        image: 'http://ecx.images-amazon.com/images/I/61s42c%2BtVpL.jpg',
-        desc: 'Kellogg’s Frosted Flakes cereal features frosted, oven-toasted corn flakes that give kids a sweet, crispy start to their morning. Fortified with 10 essential vitamins and minerals, Frosted Flakes have no cholesterol, are fat-free and taste delicious.',
-        company: 'Kellogg'
-      },
-      {
-        id: 1,
-        name: 'Frosted Flakes',
-        category: 'cereal',
-        image: 'http://ecx.images-amazon.com/images/I/61s42c%2BtVpL.jpg',
-        desc: 'Kellogg’s Frosted Flakes cereal features frosted, oven-toasted corn flakes that give kids a sweet, crispy start to their morning. Fortified with 10 essential vitamins and minerals, Frosted Flakes have no cholesterol, are fat-free and taste delicious.',
-        company: 'Kellogg'
-      },
-      {
-        id: 1,
-        name: 'Frosted Flakes',
-        category: 'cereal',
-        image: 'http://ecx.images-amazon.com/images/I/61s42c%2BtVpL.jpg',
-        desc: 'Kellogg’s Frosted Flakes cereal features frosted, oven-toasted corn flakes that give kids a sweet, crispy start to their morning. Fortified with 10 essential vitamins and minerals, Frosted Flakes have no cholesterol, are fat-free and taste delicious.',
-        company: 'Kellogg'
-      },
-      {
-        id: 1,
-        name: 'Frosted Flakes',
-        category: 'cereal',
-        image: 'http://ecx.images-amazon.com/images/I/61s42c%2BtVpL.jpg',
-        desc: 'Kellogg’s Frosted Flakes cereal features frosted, oven-toasted corn flakes that give kids a sweet, crispy start to their morning. Fortified with 10 essential vitamins and minerals, Frosted Flakes have no cholesterol, are fat-free and taste delicious.',
-        company: 'Kellogg'
-      },
-      {
-        id: 1,
-        name: 'Frosted Flakes',
-        category: 'cereal',
-        image: 'http://ecx.images-amazon.com/images/I/61s42c%2BtVpL.jpg',
-        desc: 'Kellogg’s Frosted Flakes cereal features frosted, oven-toasted corn flakes that give kids a sweet, crispy start to their morning. Fortified with 10 essential vitamins and minerals, Frosted Flakes have no cholesterol, are fat-free and taste delicious.',
-        company: 'Kellogg'
-      }
-    ];
+    Item.query(function (res) {
+      $scope.isLoaded = true;
+      $scope.items = res;
+    }, function () {
+      $scope.isLoaded = true;
+      $scope.isLoadError = true;
+    });
+
+    $scope.addNew = function () {
+      var newItem = new Item({
+        name: '',
+        type: '',
+        desc: '',
+        img: '',
+        company: '',
+        stock: 0
+      });
+      editItem.set(newItem);
+      $location.path('/edit');
+    };
+
 
   });
