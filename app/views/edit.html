@@ -1,6 +1,13 @@
 <div class="row">
-  <div class="col-xs-6">
-    <div class="clearfix">&nbsp;</div>
+  <div class="clearfix">&nbsp;</div>
+  <div class="col-xs-12 text-center">
+    <h1>Edit Inventory Item</h1>
+  </div>
+  <div class="text-center col-md-offset-3 item-pic col-md-3 col-xs-12">
+    <i data-ng-if="!item.img" class="fa fa-picture-o fa-5x"></i>
+    <img data-ng-if="item.img" data-ng-src="{{ item.img }}" alt=""/>
+  </div>
+  <div class="col-md-3 col-sm-4 col-xs-12">
     <ng-form name="editForm">
       <div class="form-group">
         <label>Name</label><br/>
@@ -20,14 +27,14 @@
       </div>
       <div class="form-group">
         <label>Stock</label><br/>
-        <input type="number" class="form-control" data-ng-model="item.stock"/>
+        <input data-ng-required="true" type="number" class="form-control" data-ng-model="item.stock"/>
       </div>
       <div class="form-group">
         <label>Thumbnail</label>
         <input accept="image/*" type="file" data-ng-model="uploadedImg" base-sixty-four-input />
       </div>
-      <button class="btn btn-success" data-ng-click="save(editForm)"><i class="fa fa-check"></i></button>
-      <button class="btn btn-danger" data-ng-click="delete()"><i class="fa fa-times"></i></button>
+      <button class="btn btn-success" data-ng-click="save(editForm)"><i class="fa fa-check"></i> Save</button>
+      <button class="btn btn-danger" data-ng-click="openDeleteModal()"><i class="fa fa-times"></i> Discard Changes</button>
     </ng-form>
   </div>
 </div>

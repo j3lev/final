@@ -20,7 +20,9 @@ angular.module('finalApp')
     $scope.save = function (editForm) {
       if (editForm.$valid) {
         var filetype = $scope.uploadedImg ? $scope.uploadedImg.filetype : '';
-        $scope.item.img = filetype ? 'data:' + filetype + ';base64,' + $scope.uploadedImg.base64 : '';
+        if (!$scope.item.img || $scope.uploadedImg) {
+          $scope.item.img = filetype ? 'data:' + filetype + ';base64,' + $scope.uploadedImg.base64 : '';
+        }
         if (!$scope.item.id) {
           $scope.item.$save(function () {
             $scope.isLoading = false;
@@ -39,6 +41,22 @@ angular.module('finalApp')
           });
         }
       }
+    };
+
+    $scope.leave = function () {
+      $scope.deleteModal.hide();
+      editItem.set(null);
+      $location.path('/manage');
+    };
+
+    $scope.openDeleteModal = function () {
+      $scope.deleteModal = $modal({
+        html: true,
+        templateUrl: 'views/deleteModal.html',
+        show: true,
+        content: '<p>You will be discarding any unsaved changes.</p>',
+        scope: $scope
+      });
     };
 
   });

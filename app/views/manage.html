@@ -5,9 +5,13 @@
   <div class="clearfix">&nbsp;</div>
   <div data-ng-if="isLoaded" class="col-xs-12">
     <button class="btn btn-success" data-ng-click="addNew()"><i class="fa fa-plus"></i> Add</button>
+    <i class="fa fa-spinner fa-spin pull-right fa-2x" data-ng-if="isBusy"></i>
   </div>
   <div class="clearfix">&nbsp;</div>
-  <div class="col-xs-3" data-ng-repeat="item in items">
+  <div class="col-xs-12 text-center" data-ng-if="!items.length && isLoaded">
+    <h2 class="text-muted"><i class="fa fa-info-circle"></i> Your inventory is empty.</h2>
+  </div>
+  <div class="col-xs-12 col-md-3" data-ng-repeat="item in items">
     <div class="thumbnail">
       <div class="item-pic text-center">
         <i data-ng-if="!item.img" class="fa fa-picture-o fa-5x"></i>
@@ -16,12 +20,14 @@
       <div class="caption">
         <h3> {{ item.name }} </h3>
         <h4 class="text-muted"> {{ item.company }} </h4>
-        <p> {{ item.desc ? item.desc : 'No description.' }} </p>
-        <p>
-          <button class="btn btn-primary" data-ng-click="edit(item)"><i class="fa fa-pencil"></i></button>
-          <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-        </p>
-      </div>
+        <small data-ng-if="!item.stock" class="text-danger"><strong>Out of stock.</strong></small>
+        <small data-ng-if="item.stock">There are {{ item.stock }} of these in stock.</small>
+        <p data-ng-if="item.desc.length"> {{ item.desc | limitTo: 140 }}{{ item.desc.length > 140 ? '...' : '' }} </p>
+        <p class="text-muted" data-ng-if="!item.desc.length">No description.</p>
+        </div>
+      <button class="btn btn-primary" data-ng-click="edit(item)"><i class="fa fa-pencil"></i></button>
+      <button class="btn btn-danger" data-ng-click="deleteItem(item)"><i class="fa fa-times"></i></button>
+
     </div>
   </div>
 </div>

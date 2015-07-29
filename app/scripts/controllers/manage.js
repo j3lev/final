@@ -8,9 +8,11 @@
  * Controller of the finalApp
  */
 angular.module('finalApp')
-  .controller('ManageCtrl', function ($scope, $http, Item, editItem, $location) {
+  .controller('ManageCtrl', function ($scope, $http, Item, editItem, $location, $modal) {
     $scope.items = [];
     $scope.isLoaded = false;
+    $scope.isBusy = false;
+    $scope.deleteItem = {};
 
     Item.query(function (res) {
       $scope.isLoaded = true;
@@ -38,5 +40,31 @@ angular.module('finalApp')
       $location.path('/edit');
     };
 
+    $scope.leave = function () {
+      $scope.deleteModal.hide();
+      $scope.isBusy = true;
+      for (var i = 0; i < $scope.items.length; i++) {
+        if ($scope.items[i].id === $scope.deleteItem.id) {
+          $scope.items.splice(i, 1);
+          break;
+        }
+      }
+      $scope.deleteItem.$remove(function () {
+        $scope.isBusy = false;
+      });
+
+    };
+
+
+    $scope.deleteItem = function (item) {
+      $scope.deleteItem = item;
+      $scope.deleteModal = $modal({
+        html: true,
+        templateUrl: 'views/deleteModal.html',
+        show: true,
+        content: '<p>You will be permanently deleting ' + item.name + ' from your inventory.</p>',
+        scope: $scope
+      });
+    };
 
   });
