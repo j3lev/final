@@ -22,13 +22,12 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="container-fluid">
-      <ul class="bg-primary nav nav-pills main-nav navbar-fixed-top">
-         <li><a><i class="fa fa-gear fa-fw"></i> Settings</a></li>
-         <li><a><i class="fa fa-pencil-square-o fa-fw"></i> Manage</a></li>
+      <ul class="bg-primary nav nav-pills main-nav navbar-fixed-top" data-ng-controller="NavbarCtrl">
+         <li><a href="#/settings"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
+         <li><a href="#/manage"><i class="fa fa-pencil-square-o fa-fw"></i> Manage</a></li>
          <li><a><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
          <h1 class="text-right"><span class="text-light">inventor</span><strong>me</strong></h1>
       </ul>
-      </div>
       <div data-ng-view=""></div>
     </div>
 

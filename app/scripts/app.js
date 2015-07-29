@@ -27,6 +27,10 @@ angular
         templateUrl: 'views/edit.html',
         controller: 'EditCtrl'
       })
+      .when('/edit/new', {
+        templateUrl: 'views/edit.html',
+        controller: 'EditCtrl'
+      })
       .otherwise({
         redirectTo: '/manage'
       });

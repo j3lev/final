@@ -30,6 +30,11 @@ angular.module('finalApp')
         stock: 0
       });
       editItem.set(newItem);
+      $location.path('/edit/new');
+    };
+
+    $scope.edit = function (item) {
+      editItem.set(item);
       $location.path('/edit');
     };
 
