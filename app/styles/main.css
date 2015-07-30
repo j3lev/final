@@ -16,6 +16,13 @@ h1 {
   font-size: 2em;
 }
 
+.manage-filters {
+  display: inline;
+  padding-left: 10px;
+  margin-left: 10px;
+  border-left: 1px solid #808080;
+}
+
 .main-nav {
   padding: 10px;
   border-bottom: 10px solid #33b770;

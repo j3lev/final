@@ -8,13 +8,13 @@
  * Service in the finalApp.
  */
 angular.module('finalApp')
-  .service('User', function () {
+  .service('User', function ($window) {
     var firstName = 'Joey';
     var lastName = 'Levenson';
     var email = 'hello@fakeemail.com';
     var user = 'admin';
     var pw = 'admin';
-    var isLoggedIn = false;
+    var isLoggedIn = Boolean($window.localStorage.getItem('loggedin'));
 
     return {
       isLoggedin: function () {
@@ -22,10 +22,13 @@ angular.module('finalApp')
       },
       login: function (username, password) {
         isLoggedIn = username === user && password === pw;
-        console.log(isLoggedIn);
+        if (isLoggedIn) {
+          $window.localStorage.setItem('loggedin', 'true');
+        }
         return isLoggedIn;
       },
       logout: function () {
+        $window.localStorage.removeItem('loggedin');
         isLoggedIn = false;
       }
     }

@@ -9,7 +9,9 @@
  */
 angular.module('finalApp')
   .controller('LoginCtrl', function ($scope, User, $location) {
+
     $scope.isLoggedin = User.isLoggedin();
+
     if ($scope.isLoggedin) {
       $location.path('/manage');
     }
