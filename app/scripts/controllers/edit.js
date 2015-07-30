@@ -52,7 +52,7 @@ angular.module('finalApp')
     $scope.openDeleteModal = function () {
       $scope.deleteModal = $modal({
         html: true,
-        templateUrl: 'views/deleteModal.html',
+        templateUrl: '/deleteModal.html',
         show: true,
         content: '<p>You will be discarding any unsaved changes.</p>',
         scope: $scope
