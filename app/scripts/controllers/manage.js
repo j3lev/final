@@ -8,7 +8,12 @@
  * Controller of the finalApp
  */
 angular.module('finalApp')
-  .controller('ManageCtrl', function ($scope, $http, Item, editItem, $location, $modal) {
+  .controller('ManageCtrl', function ($scope, $http, User, Item, editItem, $location, $modal) {
+
+    if (!User.isLoggedin()) {
+      $location.path('/login');
+    }
+
     $scope.items = [];
     $scope.companies = [];
     $scope.types = [];

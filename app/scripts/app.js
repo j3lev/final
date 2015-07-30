@@ -31,7 +31,11 @@ angular
         templateUrl: 'views/edit.html',
         controller: 'EditCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
       .otherwise({
-        redirectTo: '/manage'
+        redirectTo: '/login'
       });
   });

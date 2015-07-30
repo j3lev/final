@@ -42,10 +42,10 @@
     </script>
 
     <div class="container-fluid">
-      <ul class="bg-primary nav nav-pills main-nav navbar-fixed-top" data-ng-controller="NavbarCtrl">
+      <ul data-ng-show="user.isLoggedin()" class="bg-primary nav nav-pills main-nav navbar-fixed-top" data-ng-controller="NavbarCtrl">
          <li><a href="#/settings"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
          <li><a href="#/manage"><i class="fa fa-pencil-square-o fa-fw"></i> Manage</a></li>
-         <li><a><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+         <li><a data-ng-click="logout()"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
          <h1 class="text-right"><span class="text-light">inventor</span><strong>me</strong></h1>
       </ul>
       <div data-ng-view=""></div>
@@ -72,6 +72,7 @@
         <script src="scripts/services/item.js"></script>
         <script src="scripts/services/edititem.js"></script>
         <script src="scripts/controllers/edit.js"></script>
+        <script src="scripts/controllers/login.js"></script>
         <!-- endbuild -->
 </body>
 </html>

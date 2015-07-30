@@ -22,6 +22,7 @@ angular.module('finalApp')
       },
       login: function (username, password) {
         isLoggedIn = username === user && password === pw;
+        console.log(isLoggedIn);
         return isLoggedIn;
       },
       logout: function () {

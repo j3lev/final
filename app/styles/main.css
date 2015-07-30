@@ -18,14 +18,14 @@ h1 {
 
 .main-nav {
   padding: 10px;
-  border-bottom: 10px solid #b3ee00;
+  border-bottom: 10px solid #33b770;
 }
   .main-nav a {
     color: white;
   }
 
 .loading-box {
-  margin-top: 10%;
+  margin-top: 8%;
 }
 
 .caption {
@@ -34,6 +34,18 @@ h1 {
 
 .text-light {
   font-weight: lighter;
+}
+
+.login-logo {
+  font-size: 3em;
+}
+
+.login-container {
+  background-color: #22527b;
+  border: 10px solid #337ab7;
+  border-radius: 10px;
+  color: white;
+  padding: 30px;
 }
 
 .item-pic img {

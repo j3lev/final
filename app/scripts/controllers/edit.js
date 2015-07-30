@@ -8,7 +8,11 @@
  * Controller of the finalApp
  */
 angular.module('finalApp')
-  .controller('EditCtrl', function ($scope, editItem, $location, $modal) {
+  .controller('EditCtrl', function ($scope, User, editItem, $location, $modal) {
+
+    if (!User.isLoggedin()) {
+      $location.path('/login');
+    }
 
     $scope.isLoading = true;
     $scope.item = editItem.get();

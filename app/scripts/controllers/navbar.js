@@ -8,6 +8,12 @@
  * Controller of the finalApp
  */
 angular.module('finalApp')
-  .controller('NavbarCtrl', function ($scope, User) {
+  .controller('NavbarCtrl', function ($scope, $location, User) {
+    $scope.user = User;
+
+    $scope.logout = function () {
+      User.logout();
+      $location.path('/login');
+    };
 
   });

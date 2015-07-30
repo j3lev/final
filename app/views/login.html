@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="clearfix">&nbsp;</div>
+  <div class="clearfix">&nbsp;</div>
+  <div class="col-xs-12">
+    <h1 class="login-logo text-center"><span class="text-light">inventor<strong>me</strong></span></h1>
+  </div>
+  <div class="login-container col-xs-4 col-xs-offset-4">
+    <ng-form name="login">
+      <div class="form-group">
+        <label class="text-light"><i class="fa fa-user"></i> Username</label>
+        <input data-ng-model="user" class="form-control" type="text" data-ng-required="true"/>
+      </div>
+      <div class="form-group">
+        <label class="text-light"><i class="fa fa-lock"></i> Password</label>
+        <input data-ng-model="pass" class="form-control" type="password" data-ng-required="true"/>
+      </div>
+      <div class="clearfix">&nbsp;</div>
+      <div class="form-group text-center">
+        <button data-ng-click="loginUser(user, pass)" class="btn btn-success"><i class="fa fa-key"></i> Log In</button>
+      </div>
+    </ng-form>
+  </div>
+  <div class="clearfix">&nbsp;</div>
+  <div class="clearfix">&nbsp;</div>
+  <div data-ng-if="loginFail" class="col-xs-4 col-xs-offset-4 alert alert-danger" role="alert">
+      <i class="fa fa-times-circle"></i>&nbsp; Wrong credentials...try again.
+  </div>
+</div>
